@@ -50,3 +50,24 @@ frutas.forEach((fruta, index) => {
 for (const verdura of verduras){
     console.log(`Verdura: ${verdura}`)
 };
+
+//DESTRUCTURING OPERATOR - DESESTRUCTURANDO ARRAYS
+//Extraemos valores por posición, no importa el nombre que le demos a la variable, importa el orden en que esta llamado
+//trae --[0] ------ [1] -------- [2]
+const [ remera , otroNombre , segundo] = frutas;
+console.log(remera);
+console.log(segundo);
+//para saltear valores pongo comas hasta llegar al que quiero acceder
+//trae -------------- [2]
+const [ , , valorAlQueQuieroAcceder ] = verduras;
+console.log(valorAlQueQuieroAcceder);
+
+
+//SPREAD OPERATOR
+//Combinamos arrays:
+const frutasYVerduras = [...frutas, ...verduras]
+console.log(frutasYVerduras);
+
+//Copiar Arrays: para que no se modifiquen las variables anteriores, porque de otra forma no se genera una copia del array, sino que es una referencia al array original
+const copiaFrutas = [...frutas];
+console.log(copiaFrutas);

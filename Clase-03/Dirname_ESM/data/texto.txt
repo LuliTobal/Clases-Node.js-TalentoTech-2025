@@ -1,0 +1,1 @@
+Este texto es al que se accede mediante __dirname con ESM

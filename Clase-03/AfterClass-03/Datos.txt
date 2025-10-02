@@ -1,0 +1,8 @@
+nombre,apellido,edad,mail,contraseña
+Juan,Perez,20,juancitope@mail.com,1234jp
+Juliana,Lombardi,55,juli_lo@mail.com,1452jl
+Ana,Cruzo,58,acruzo@mail.com,85256ac
+Luis,Fonseca,26,luisf@mail.com,696556lf
+Pedro,Ramirez,85,pedror@mail.com,89586pr
+Maria,Lugones,43,marilu@mail.com,5813ml
+Nicolas,Martini,72,nicola@mail.com,8966nm

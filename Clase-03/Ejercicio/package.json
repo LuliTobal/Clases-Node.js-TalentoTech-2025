@@ -1,0 +1,14 @@
+{
+  "name": "ejercicio",
+  "version": "1.0.0",
+  "main": "Ejercicio.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Ejercicio.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

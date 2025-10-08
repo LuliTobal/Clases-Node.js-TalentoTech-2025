@@ -9,4 +9,4 @@ function taskAsync(callback) {
 console.log(`Tarea a ejecutarse primero`);
 taskAsync(function(){ //llamado y pase de función callback
     console.log('Fin de la tarea')//funcion que se pasa como argumento a ejecutar asyncrónicamente
-})
+});

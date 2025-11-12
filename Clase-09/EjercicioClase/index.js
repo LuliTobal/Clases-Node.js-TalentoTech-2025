@@ -20,7 +20,7 @@ const configCors = {
 app.use(cors(configCors)); //le decimos que app usa de la libreria cors el objeto creado con las configuraciones
 
 ////////////////////
-//PATH PARAMS
+//PATH PARAMS - se maneja en capa de routes, bajamos la info de la url y se la pasamos al controlador
 ////////////////////
 
 //creamos el endpoint usando path params --> usa el : para indicar que es una variable, y trae la info que está despues de la barra
@@ -31,8 +31,14 @@ app.get('/items/:id', (req, res) =>{
     res.send(`Este producto tiene el id n°${idProduct}`)
 });
 
+app.get('/usuarios/:id', (req, res) =>{
+    const idUsuario = req.params.id;
+    res.send(`ID del Usuario: ${idUsuario}`)
+});
+
+
 ////////////////////
-//QUERY PARAMS
+//QUERY PARAMS - se maneja en capa de routes, bajamos la info de la url y se la pasamos al controlador
 ////////////////////
 
 //Creamos el endpoint usando querys
@@ -42,13 +48,33 @@ app.get('/item', (req, res) =>{
     const category = req.query.categoria; //creamos la variable categoria y le damos el valor que va a obtener de la url (categoria=cartera)
     const price = req.query.price;//y aca creamos y obtenemos el valor de la url (price=5478256)
     res.send(`El producto pertenece a la categoría: ${category} y su valor es de: $${price}`)
-})
+});
+
+app.get('/usuario', (req, res) =>{
+    const nombreUsuario = req.query.nombre;
+    const dniUsuario = req.query.dni;
+    res.send(`El DNI ${dniUsuario} pertenece a ${nombreUsuario}`)
+});
+
+////////////////////
+//Combinamos PATH & QUERY PARAMS - se maneja en capa de routes, bajamos la info de la url y se la pasamos al controlador
+////////////////////
+
+app.get('/usuarios/:id', (req, res) =>{
+    const idUsuario = req.params.id;
+    const nombreUsuario = req.query.nombre;
+    const dniUsuario = req.query.dni
+    res.send(`ID del Usuario: ${idUsuario}
+        Nombre del Usuario: ${nombreUsuario}
+        DNI del Usuario: ${dniUsuario}`)
+});
+
 
 //Manejamos el error 404 con el middleware next - las solucutudes que van a una url inexistente
 app.use((req, res, next) =>{
-    res.status(404).send('El recurso no se encuentra o la ruta es inválida')
-})
+    res.status(404).send('El recurso no se encuentra o la ruta es inválida');//mandamos al codigo de respuesta (en este caso 404) que queremos que nos responda
+});
 
 app.listen(PORT, () =>{
     console.log(`El servidor fue iniciado y esta siendo ejecuado en: http://localhost:${PORT}`)
-})
+});

@@ -70,7 +70,7 @@ app.get('/usuarios/:id', (req, res) =>{
 });
 
 
-//Manejamos el error 404 con el middleware next - las solucutudes que van a una url inexistente
+//Manejamos el error 404 con el middleware next - las solicitudes que van a una url inexistente
 app.use((req, res, next) =>{
     res.status(404).send('El recurso no se encuentra o la ruta es inválida');//mandamos al codigo de respuesta (en este caso 404) que queremos que nos responda
 });

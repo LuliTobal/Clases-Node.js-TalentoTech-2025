@@ -17,5 +17,5 @@ router.get('/principal', (req, res) => {
 
 router.get('/product/:id', getProductId);
 
-export default router //dentro de router van a estar las rutas que se fueron declarando en el archivo
+export default router; //dentro de router van a estar las rutas que se fueron declarando en el archivo
 //para importar desde el index

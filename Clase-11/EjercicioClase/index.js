@@ -3,6 +3,8 @@ import cors from 'cors';
 import productosRouter from './src/routes/productos_routes.js'
 
 const app = express();
+//para permitir json en el body
+app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +17,7 @@ const corsConfig = {
 };
 
 app.use(cors(corsConfig));
+
 //solo como comprobación
 app.use((req, res, next) => {
     console.log(`Solicitud del tipo: ${req.method}. Hecha por dominio: ${req.url}`);
@@ -27,7 +30,7 @@ app.use(productosRouter);
 app.use((req, res) => {
     res.status(404).send('Se produjo un error al no encontra la ruta a la que quiere acceder')
 });
-
+//iniciamos servidor
 app.listen(PORT, () => {
     console.log(`El servidor se esta ejecutando en http://localhost:${PORT}`)
 });

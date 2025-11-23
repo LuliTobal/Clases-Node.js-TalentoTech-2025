@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getAllProducts, getProductsId} from '../controllers/productos_contollers.js'
+import {getAllProducts, getProductsId, agregarProducto} from '../controllers/productos_contollers.js'
 
 const router = Router();
 
@@ -10,5 +10,8 @@ router.get('/', (req,res) => {
 router.get('/products', getAllProducts);
 
 router.get('/product/:id', getProductsId);
+
+//agremaos la logica para crear un nuevo producto
+router.post('/addproduct', agregarProducto);
 
 export default router;

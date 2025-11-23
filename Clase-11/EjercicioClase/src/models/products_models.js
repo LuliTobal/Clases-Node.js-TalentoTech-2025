@@ -13,18 +13,29 @@ const filePath = path.join(__dirname, 'productos_db.json');
 async function leerBD() {
     try{
         const data = fs.readFileSync(filePath, 'utf-8');
-        console.log(data); //solo un agregado para comprobar en consola
         const productos = await JSON.parse(data); //data es formato json, por lo que lo pasamos a objeto de js
-        console.log(productos); //para comprobar lo que devuelve
         return productos;
     }catch (error){
         console.log('se produjo un error al intentar leer el archivo', error)
     }
 };
 
-leerBD();
+//logica para agregar un producto nuevo
+async function agregarNuevo(product) {
+    //const data = await JSON.stringify(producto); //convertimos el bjeto literal producto en lenguaje json
+    const baseDatos = await leerBD();
+    baseDatos.push(product);
+    const baseActualizada = JSON.stringify(baseDatos, null, 2);
+    fs.writeFileSync(filePath, baseActualizada, 'utf-8')
+    return product;
+};
 
 export async function obtenerProductos() {
     const productos = await leerBD();
     return productos;
+};
+//agregadooo
+export async function agregarProducto(producto) {
+    const baseActualizada = await agregarNuevo(producto);
+    return baseActualizada;
 };

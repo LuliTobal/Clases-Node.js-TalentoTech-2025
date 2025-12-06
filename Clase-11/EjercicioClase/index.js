@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import productosRouter from './src/routes/productos_routes.js'
+import productosRouter from './src/routes/productos_routes.js';
+import authRouter from './src/routes/auth_routes.js'
+import { auth } from './src/middlewares/auth_middleware.js';
+
 
 const app = express();
 //para permitir json en el body
@@ -24,6 +27,9 @@ app.use((req, res, next) => {
     next();
 });
 //enrutamiento
+app.use(authRouter); //a login
+
+app.use(auth); //para que se tenga acceso a todas las rutas solo con token
 app.use(productosRouter);
 
 //manejo de error 404

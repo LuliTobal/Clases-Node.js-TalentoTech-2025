@@ -1,11 +1,14 @@
 import { Router } from "express";
 import {getAllProducts, getProductsId, agregarProducto} from '../controllers/productos_contollers.js'
+//import { auth } from "../middlewares/auth_middleware.js";
 
 const router = Router();
+
 
 router.get('/', (req,res) => {
     res.send('Ruta pricipal')
 });
+
 
 router.get('/products', getAllProducts);
 

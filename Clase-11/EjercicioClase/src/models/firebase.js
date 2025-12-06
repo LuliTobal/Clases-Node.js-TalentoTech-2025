@@ -68,7 +68,7 @@ async function editarProducto(producto) {
 
 async function eliminarProducto(id) {
     try{
-        await deleteDoc(doc(db, 'products', id));
+        await deleteDoc(doc(db, 'products', id)); //le pasamos al metodo delete la referencia del documento que queremos eliminar
         console.log('el producto se eliminó con exito')
     } catch (error) {
         console.log('No pudo eliminarse el producto')
